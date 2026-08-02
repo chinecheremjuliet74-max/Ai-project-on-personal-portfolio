@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chibuzor Chinecherem Juliet — Frontend Developer & Data Analyst</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#16130F',
+          espresso: '#241E17',
+          ivory: '#F6F1E7',
+          ivorydim: '#ECE1CC',
+          brass: '#B8935A',
+          brasssoft: '#D4B583',
+          taupe: '#8C8272',
+          rule: '#3A322A',
+        },
+        fontFamily: {
+          display: ['"Playfair Display"', 'serif'],
+          body: ['"Manrope"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #F6F1E7; }
+
+  .weave-texture {
+    background-image: repeating-linear-gradient(135deg, rgba(184,147,90,0.05) 0px, rgba(184,147,90,0.05) 1px, transparent 1px, transparent 14px);
+  }
+
+  .plaque {
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.45);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  .eyebrow { letter-spacing: 0.2em; }
+
+  ::selection { background: #B8935A; color: #16130F; }
+
+  .progress-track { background: rgba(246,241,231,0.1); }
+  .progress-fill { background: linear-gradient(90deg, #B8935A, #D4B583); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { transition: none; }
+  }
+
+  video::-webkit-media-controls-panel { background: #16130F; }
+</style>
+</head>
+
+<body class="font-body text-ink antialiased flex flex-col min-h-screen">
+
+<!-- ============ NAV (sticky) ============ -->
+<header class="sticky top-0 z-50 bg-ink/95 backdrop-blur border-b border-rule">
+  <nav class="max-w-6xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="#home" class="font-display text-ivory text-lg tracking-tight flex items-center gap-3">
+      <span class="w-9 h-9 rounded-full border border-brass text-brass flex items-center justify-center font-mono text-xs">CJ</span>
+      <span class="hidden sm:inline">Chibuzor Juliet</span>
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8 font-mono text-[11px] uppercase eyebrow text-ivory/60">
+      <li><a href="#home" class="hover:text-brass transition-colors">Home</a></li>
+      <li><a href="#about" class="hover:text-brass transition-colors">About</a></li>
+      <li><a href="#skills" class="hover:text-brass transition-colors">Skills</a></li>
+      <li><a href="#projects" class="hover:text-brass transition-colors">Projects</a></li>
+      <li><a href="#contact" class="hover:text-brass transition-colors">Contact</a></li>
+    </ul>
+
+    <a href="css/CHIBUZOR CHINECHEREM JULIET.docx" download
+       class="font-mono text-[11px] uppercase eyebrow border border-brass text-brass px-4 py-2 rounded-full hover:bg-brass hover:text-ink transition-colors">
+      Résumé ↓
+    </a>
+  </nav>
+</header>
+
+<main class="flex-grow">
+
+  <!-- ============ HOME / HERO ============ -->
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-ink">
+    <div class="absolute inset-0 weave-texture"></div>
+    <div class="absolute -right-32 top-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full bg-brass/10 blur-3xl"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16 grid lg:grid-cols-5 gap-14 items-center">
+
+      <!-- copy -->
+      <div class="lg:col-span-3 order-2 lg:order-1">
+        <p class="font-mono text-xs uppercase eyebrow text-brass mb-5">Enugu State, Nigeria · Open to internships & junior roles</p>
+        <h1 class="font-display text-ivory leading-[1.05] text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6">
+          Chibuzor Chinecherem<br />
+          <span class="italic text-brass">Juliet.</span>
+        </h1>
+        <p class="text-ivory/70 text-base sm:text-lg max-w-lg mb-4 leading-relaxed">
+          Frontend developer and data analyst in training — I build clean,
+          responsive interfaces with HTML and Tailwind CSS, and turn raw data
+          into dashboards people actually want to read.
+        </p>
+        <p class="text-ivory/50 text-sm max-w-lg mb-10 leading-relaxed">
+          Currently a student, 8 months into hands-on practice — still early,
+          moving fast, and building in public.
+        </p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="css/CHIBUZOR CHINECHEREM JULIET.docx" download
+             class="bg-brass text-ink font-mono text-xs uppercase eyebrow px-6 py-3.5 rounded-full hover:bg-brasssoft transition-colors">
+            Download CV
+          </a>
+          <a href="#projects"
+             class="border border-ivory/25 text-ivory font-mono text-xs uppercase eyebrow px-6 py-3.5 rounded-full hover:border-brass hover:text-brass transition-colors">
+            View Projects
+          </a>
+        </div>
+      </div>
+
+      <!-- photo + nameplate -->
+      <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center">
+        <div class="relative w-64 sm:w-80">
+          <div class="absolute inset-0 translate-x-4 translate-y-4"></div>
+          <img src="css/WhatsApp Image 2026-06-15 at 2.21.42 PM.jpeg" alt="Chibuzor Chinecherem Juliet"
+               class="plaque relative rounded-sm w-full aspect-[4/5] object-cover object-top" />
+          <div class="plaque absolute -bottom-6 -left-6 bg-ivory text-ink px-5 py-3 rounded-sm">
+            <p class="font-mono text-[10px] uppercase text-brass mb-0.5">Est. career</p>
+            <p class="font-display text-sm font-semibold">8 months &amp; counting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ivory/40 hover:text-brass transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="py-28 bg-ivory">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 grid lg:grid-cols-5 gap-14 items-start">
+
+      <div class="lg:col-span-2 reveal">
+        <div class="relative">
+          <img src="css/WhatsApp Image 2026-06-15 at 2.21.42 PM.jpeg" alt="Chibuzor Chinecherem Juliet at her desk"
+               class="rounded-sm w-full aspect-[4/5] object-cover object-top" />
+          <div class="absolute -bottom-5 -right-5 bg-ink text-ivory font-mono text-xs px-4 py-3 rounded-sm">
+            <span class="text-brass">Enugu</span> State, Nigeria
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3 reveal">
+        <p class="font-mono text-xs uppercase eyebrow text-brass mb-4">About</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-semibold mb-6">
+          Early career,<br class="hidden sm:block" /> deliberate craft.
+        </h2>
+        <p class="text-taupe leading-relaxed mb-5">
+          I'm a student based in Enugu State, currently building the foundation of a
+          career at the intersection of frontend development and data analysis.
+          Eight months in, I've gone from following tutorials to shipping
+          self-contained projects — a personal portfolio, an editorial blog, and
+          a full sentiment-analysis dashboard for a restaurant brand's customer
+          reviews.
+        </p>
+        <p class="text-taupe leading-relaxed mb-10">
+          I care about the same thing on both sides of my work: turning something
+          messy — a blank page or a spreadsheet of raw opinions — into something
+          clear enough that someone else can act on it. I'm looking for an
+          internship or junior role where I can keep learning quickly alongside
+          people who'll push my standards higher.
+        </p>
+
+        <div class="grid grid-cols-3 gap-6 border-t border-rule/10 pt-8">
+          <div>
+            <p class="font-display text-3xl font-semibold text-ink">8</p>
+            <p class="font-mono text-[11px] uppercase text-taupe mt-1">Months building</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-semibold text-ink">3+</p>
+            <p class="font-mono text-[11px] uppercase text-taupe mt-1">Projects shipped</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-semibold text-ink">2</p>
+            <p class="font-mono text-[11px] uppercase text-taupe mt-1">Core disciplines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="py-28 bg-ink">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="mb-14 reveal">
+        <p class="font-mono text-xs uppercase eyebrow text-brass mb-4">Skills</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-semibold text-ivory">
+          What I bring to the table.
+        </h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10 mb-14">
+        <!-- Frontend -->
+        <div class="reveal">
+          <p class="font-mono text-[11px] uppercase text-brass mb-5">Frontend Development</p>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between font-mono text-xs text-ivory/70 mb-1.5">
+                <span>HTML5 &amp; CSS3</span><span>Confident</span>
+              </div>
+              <div class="progress-track h-1.5 rounded-full overflow-hidden"><div class="progress-fill h-full rounded-full" style="width:85%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono text-xs text-ivory/70 mb-1.5">
+                <span>Tailwind CSS</span><span>Confident</span>
+              </div>
+              <div class="progress-track h-1.5 rounded-full overflow-hidden"><div class="progress-fill h-full rounded-full" style="width:80%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono text-xs text-ivory/70 mb-1.5">
+                <span>JavaScript</span><span>Developing</span>
+              </div>
+              <div class="progress-track h-1.5 rounded-full overflow-hidden"><div class="progress-fill h-full rounded-full" style="width:55%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data -->
+        <div class="reveal">
+          <p class="font-mono text-[11px] uppercase text-brass mb-5">Data &amp; Analytics</p>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between font-mono text-xs text-ivory/70 mb-1.5">
+                <span>Python</span><span>Confident</span>
+              </div>
+              <div class="progress-track h-1.5 rounded-full overflow-hidden"><div class="progress-fill h-full rounded-full" style="width:75%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono text-xs text-ivory/70 mb-1.5">
+                <span>NLP (NLTK, VADER, NRCLex)</span><span>Developing</span>
+              </div>
+              <div class="progress-track h-1.5 rounded-full overflow-hidden"><div class="progress-fill h-full rounded-full" style="width:60%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono text-xs text-ivory/70 mb-1.5">
+                <span>Data Visualization</span><span>Developing</span>
+              </div>
+              <div class="progress-track h-1.5 rounded-full overflow-hidden"><div class="progress-fill h-full rounded-full" style="width:65%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-rule pt-10 reveal">
+        <p class="font-mono text-[11px] uppercase text-brass mb-5">Tools</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="font-mono text-xs px-3 py-1.5 border border-rule text-ivory/70 rounded-full">Git &amp; GitHub</span>
+          <span class="font-mono text-xs px-3 py-1.5 border border-rule text-ivory/70 rounded-full">VS Code</span>
+          <span class="font-mono text-xs px-3 py-1.5 border border-rule text-ivory/70 rounded-full">Figma</span>
+          <span class="font-mono text-xs px-3 py-1.5 border border-rule text-ivory/70 rounded-full">Pandas</span>
+          <span class="font-mono text-xs px-3 py-1.5 border border-rule text-ivory/70 rounded-full">Google Sheets</span>
+          <span class="font-mono text-xs px-3 py-1.5 border border-rule text-ivory/70 rounded-full">Canva</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="py-28 bg-ivory">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="mb-14 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 reveal">
+        <div>
+          <p class="font-mono text-xs uppercase eyebrow text-brass mb-4">Projects</p>
+          <h2 class="font-display text-4xl sm:text-5xl font-semibold">Selected work, in motion.</h2>
+        </div>
+        <p class="text-taupe text-sm max-w-xs">Short screen-recordings of things I've built while learning — real projects, real code.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+         <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <video class="w-full h-full object-cover" controls preload="metadata"
+              poster="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?q=80&w=1200&auto=format&fit=crop">
+              <source src="css/202607271035.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1">Food & Restaurant</p>
+            <h3 class="font-display text-lg font-semibold mb-2">Mamaput — Local Food Website</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed">A warm, menu-first website concept for a mamaput-style local food spot, with a photo-led menu grid and an easy order-ahead flow.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">HTML5</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">Tailwind CSS</span>
+            </div>
+            <div class="flex items-center gap-4 pt-3 border-t border-rule/10">
+              <a href="https://chinecheremjuliet74-max.github.io/AI-mamaput-project/" target="_blank" class="font-mono text-[11px] uppercase text-ink hover:text-brass transition-colors flex items-center gap-1">Live ↗</a>
+              <a href="https://chinecheremjuliet74-max.github.io/new-mama-kitchen/" target="_blank" class="font-mono text-[11px] uppercase text-ink hover:text-brass transition-colors flex items-center gap-1">Live ↗</a>
+              <a href="https://github.com/chinecheremjuliet74-max/AI-mamaput-project.git" target="_blank" class="font-mono text-[11px] uppercase text-taupe hover:text-brass transition-colors flex items-center gap-1">Code &lt;/&gt;</a>
+            </div>
+          </div>
+        </article>
+
+         <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <video class="w-full h-full object-cover" controls preload="metadata"
+              poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop">
+              <source src="css/202607271026 (1).mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1">Data Analytics</p>
+            <h3 class="font-display text-lg font-semibold mb-2">Mega Chicken — Review Insights</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed">An NLP dashboard analyzing customer reviews for sentiment, emotion, and key aspects, built as a self-contained HTML report.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">Python</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">VADER / NLTK</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">SVG Charts</span>
+            </div>
+            <div class="flex items-center gap-4 pt-3 border-t border-rule/10">
+              <a href="https://chinecheremjuliet74-max.github.io/sentiment-analysis-/" target="_blank" class="font-mono text-[11px] uppercase text-ink hover:text-brass transition-colors flex items-center gap-1">Live ↗</a>
+              <a href="https://github.com/chinecheremjuliet74-max/sentiment-analysis-.git" target="_blank" class="font-mono text-[11px] uppercase text-taupe hover:text-brass transition-colors flex items-center gap-1">Code &lt;/&gt;</a>
+            </div>
+          </div>
+        </article>
+
+         <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <video class="w-full h-full object-cover" controls preload="metadata"
+              poster="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop">
+              <source src="css/202608011535 (1) (1).mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1">my book</p>
+            <h3 class="font-display text-lg font-semibold mb-2">The Invisible Crown, v1</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed">A deep hidden Story about First born daughters</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">HTML5</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">Tailwind CSS</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">IntersectionObserver</span>
+            </div>
+            <div class="flex items-center gap-4 pt-3 border-t border-rule/10">
+              <a href="https://www.amazon.com/dp/B0H8Q8YS96" target="_blank" class="font-mono text-[11px] uppercase text-ink hover:text-brass transition-colors flex items-center gap-1">Live ↗</a>
+              <a href="https://www.amazon.com/dp/B0H8Q8YS96" target="_blank" class="font-mono text-[11px] uppercase text-taupe hover:text-brass transition-colors flex items-center gap-1">Code &lt;/&gt;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <video class="w-full h-full object-cover" controls preload="metadata"
+              poster="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop">
+              <source src="css/202608011535 (2).mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1"> Blog</p>
+            <h3 class="font-display text-lg font-semibold mb-2">Travel site</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed">Travel to your destination with pocket freely.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">HTML5</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">Tailwind CSS</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <video class="w-full h-full object-cover" controls preload="metadata"
+              poster="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop">
+              <source src="css/these_are_the_images_so_add_th (1).mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1"> Blog</p>
+            <h3 class="font-display text-lg font-semibold mb-2"> personal portfolio</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed"> click to know more about us.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">HTML5</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">Tailwind CSS</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <video class="w-full h-full object-cover" controls preload="metadata"
+              poster="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop">
+              <source src="css/Nigeria_Unfiltered_Podcast_Intro_202607271057.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1">Editorial / Blog</p>
+            <h3 class="font-display text-lg font-semibold mb-2">Baseline — culture &amp; podcast Blog</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed">A single-page editorial blog with a ticker bar, masonry photo essays, and ranked reading lists, styled entirely in Tailwind.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">HTML5</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">Tailwind CSS</span>
+            </div>
+            <div class="flex items-center gap-4 pt-3 border-t border-rule/10">
+              <a href="https://chinecheremjuliet74-max.github.io/African-gist/" target="_blank" class="font-mono text-[11px] uppercase text-ink hover:text-brass transition-colors flex items-center gap-1">Live ↗</a>
+              <a href="https://github.com/chinecheremjuliet74-max/African-gist.git" target="_blank" class="font-mono text-[11px] uppercase text-taupe hover:text-brass transition-colors flex items-center gap-1">Code &lt;/&gt;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <video class="w-full h-full object-cover" controls preload="metadata"
+              poster="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop">
+              <source src="css/Podcast_video_travel_Enugu_Lagos_202607250138.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1">Editorial / Blog</p>
+            <h3 class="font-display text-lg font-semibold mb-2">Baseline — culture &amp; podcast Blog</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed">A single-page editorial blog with a ticker bar, masonry photo essays, and ranked reading lists, styled entirely in Tailwind.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">HTML5</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">Tailwind CSS</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <video class="w-full h-full object-cover" controls preload="metadata"
+              poster="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop">
+              <source src="css/202607282348.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1">Editorial / Blog</p>
+            <h3 class="font-display text-lg font-semibold mb-2">Translation video</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed">one Nigeria</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">HTML5</span>
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">Tailwind CSS</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <img src="data:image/jpeg;base64,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"
+                 alt="Project screenshot placeholder" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1">Practice Project</p>
+            <h3 class="font-display text-lg font-semibold mb-2">Travel blog</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed">Get to your dream destination with a budget friendly pocket</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">click below</span>
+            </div>
+            <div class="flex items-center gap-4 pt-3 border-t border-rule/10">
+              <a href="https://chinecheremjuliet74-max.github.io/travelbyneche-project/" target="_blank" class="font-mono text-[11px] uppercase text-ink hover:text-brass transition-colors flex items-center gap-1">Live ↗</a>
+              <a href="https://github.com/chinecheremjuliet74-max/travelbyneche-project.git" target="_blank" class="font-mono text-[11px] uppercase text-taupe hover:text-brass transition-colors flex items-center gap-1">Code &lt;/&gt;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop"
+                 alt="Project screenshot placeholder" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1">group practice Project</p>
+            <h3 class="font-display text-lg font-semibold mb-2">group practice on fullstack</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed"> the project is live.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">click below</span>
+            </div>
+            <div class="flex items-center gap-4 pt-3 border-t border-rule/10">
+              <a href="https://chinecheremjuliet74-max.github.io/travel-adventure--group-18-CSS-HTML/" target="_blank" class="font-mono text-[11px] uppercase text-ink hover:text-brass transition-colors flex items-center gap-1">Live ↗</a>
+              <a href="https://github.com/chinecheremjuliet74-max/travel-adventure--group-18-CSS-HTML.git" target="_blank" class="font-mono text-[11px] uppercase text-taupe hover:text-brass transition-colors flex items-center gap-1">Code &lt;/&gt;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal bg-white rounded-sm overflow-hidden border border-rule/10">
+          <div class="relative aspect-video bg-ink overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
+                 alt="Project screenshot placeholder" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5">
+            <p class="font-mono text-[10px] uppercase text-brass mb-1">Practice Project</p>
+            <h3 class="font-display text-lg font-semibold mb-2">Tech and Design</h3>
+            <p class="text-taupe text-sm mb-4 leading-relaxed">the project is live.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="font-mono text-[10px] px-2 py-1 bg-ivorydim rounded-full">Coming soon</span>
+            </div>
+            <div class="flex items-center gap-4 pt-3 border-t border-rule/10">
+              <a href="https://github.com/chinecheremjuliet74-max/Tech-and-design.git" target="_blank" class="font-mono text-[11px] uppercase text-ink hover:text-brass transition-colors flex items-center gap-1">Live ↗</a>
+              <a href="https://chinecheremjuliet74-max.github.io/Tech-and-design/" target="_blank" class="font-mono text-[11px] uppercase text-taupe hover:text-brass transition-colors flex items-center gap-1">Code &lt;/&gt;</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="py-28 bg-ink">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 grid lg:grid-cols-5 gap-14">
+
+      <div class="lg:col-span-2 reveal">
+        <p class="font-mono text-xs uppercase eyebrow text-brass mb-4">Contact</p>
+        <h2 class="font-display text-4xl font-semibold text-ivory mb-6">Let's connect.</h2>
+        <p class="text-ivory/60 leading-relaxed mb-10">
+          I'm actively looking for internships and junior opportunities in frontend
+          development or data analysis. If you're hiring, mentoring, or just want
+          to talk shop, I'd love to hear from you.
+        </p>
+
+        <ul class="space-y-4 font-mono text-sm text-ivory/80">
+          <li class="flex items-center gap-3">
+            <span class="text-brass">Email</span> chinecheremjuliet74@example.com
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="text-brass">Phone</span> +234 814 921 4232 
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="text-brass">Based</span> Enugu State, Nigeria
+          </li>
+        </ul>
+
+        <div class="flex gap-4 mt-10">
+          <a href="#" class="w-10 h-10 rounded-full border border-ivory/20 flex items-center justify-center text-ivory/70 hover:border-brass hover:text-brass transition-colors font-mono text-xs">GH</a>
+          <a href="#" class="w-10 h-10 rounded-full border border-ivory/20 flex items-center justify-center text-ivory/70 hover:border-brass hover:text-brass transition-colors font-mono text-xs">LI</a>
+          <a href="#" class="w-10 h-10 rounded-full border border-ivory/20 flex items-center justify-center text-ivory/70 hover:border-brass hover:text-brass transition-colors font-mono text-xs">TW</a>
+        </div>
+      </div>
+
+      <form class="lg:col-span-3 reveal grid sm:grid-cols-2 gap-5">
+        <div class="sm:col-span-1">
+          <label class="font-mono text-[11px] uppercase text-ivory/50 mb-2 block">Name</label>
+          <input type="text" placeholder="Jane Doe"
+            class="w-full bg-espresso border border-rule rounded-sm px-4 py-3 text-ivory placeholder:text-ivory/30 focus:outline-none focus:border-brass transition-colors" />
+        </div>
+        <div class="sm:col-span-1">
+          <label class="font-mono text-[11px] uppercase text-ivory/50 mb-2 block">Email</label>
+          <input type="email" placeholder="jane@email.com"
+            class="w-full bg-espresso border border-rule rounded-sm px-4 py-3 text-ivory placeholder:text-ivory/30 focus:outline-none focus:border-brass transition-colors" />
+        </div>
+        <div class="sm:col-span-2">
+          <label class="font-mono text-[11px] uppercase text-ivory/50 mb-2 block">Message</label>
+          <textarea rows="5" placeholder="Let's talk about..."
+            class="w-full bg-espresso border border-rule rounded-sm px-4 py-3 text-ivory placeholder:text-ivory/30 focus:outline-none focus:border-brass transition-colors resize-none"></textarea>
+        </div>
+        <div class="sm:col-span-2">
+          <button type="submit"
+            class="bg-brass text-ink font-mono text-xs uppercase eyebrow px-8 py-3.5 rounded-full hover:bg-brasssoft transition-colors">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER (sticky) ============ -->
+<footer class="sticky bottom-0 z-40 bg-espresso border-t border-rule">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8 h-14 flex items-center justify-between">
+    <p class="font-mono text-[11px] text-ivory/50">© 2026 Chibuzor Chinecherem Juliet.</p>
+    <a href="#home" class="font-mono text-[11px] uppercase text-ivory/50 hover:text-brass transition-colors">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
